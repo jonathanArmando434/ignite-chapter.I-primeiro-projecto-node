@@ -15,7 +15,6 @@ app.post('/account', (req, res) => {
         name,
         statement: []
     });
-    console.log(accounts);
     res.status(201).send();
 });
 
