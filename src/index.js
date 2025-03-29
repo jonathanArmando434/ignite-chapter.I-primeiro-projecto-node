@@ -96,4 +96,16 @@ app.get('/account/statement/date', verifyAccountExistsByCPF, (req, res) => {
     return res.json(statementsFiltred);
 })
 
+app.patch('/account', verifyAccountExistsByCPF, (req, res) => {
+    const { name }  = req.body;
+    const { account } = req;
+    account.name = name;
+    return res.json(account);
+})
+
+app.get('/account', verifyAccountExistsByCPF, (req, res) => {
+    const { account } = req;
+    return res.json(account);
+})
+
 app.listen(3333);
