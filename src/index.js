@@ -108,4 +108,10 @@ app.get('/account', verifyAccountExistsByCPF, (req, res) => {
     return res.json(account);
 })
 
+app.delete('/account', verifyAccountExistsByCPF, (req, res) => {
+    const { account }  = req;
+    accounts.splice(account, 1);
+    return res.status(204).send();
+})
+
 app.listen(3333);
