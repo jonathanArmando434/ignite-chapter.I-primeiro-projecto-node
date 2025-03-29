@@ -1,1 +1,25 @@
-# ignite-chapter.I-primeiro-projecto-node
+## FinAPI - Financeira
+
+---
+
+### Requisitos funcionais
+
+- [] Deve ser possível criar conta
+- [] Deve ser possível buscar o estrato bancário do cliente
+- [] Deve ser possível realizar um depósito
+- [] Deve ser possível realizar um saque
+- [] Deve ser possível buscar o extrato bancário do cliente pela data
+- [] Deve ser possível atualizar dados da conta do cliente
+- [] Deve ser possível obter dados da conta do cliente
+- [] Deve ser possível deletar uma conta
+
+---
+
+### Regras de negócio
+
+- [] Não deve ser possível cadastrar uma conta com CPF já existente
+- [] Não deve ser possível fazer um depósito em uma conta não existente
+- [] Não deve ser possível buscar extracto em uma conta não existente
+- [] Não deve ser possível fazer saque em uma conta não existente 
+- [] Não deve ser possível excluir uma conta não existente
+- [] Não deve ser possível fazer o saque quando o saldo for insuficiente 
