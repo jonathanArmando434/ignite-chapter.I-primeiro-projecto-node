@@ -5,6 +5,9 @@
   "repository": "https://github.com/jonathanArmando434/ignite-chapter.I-primeiro-projecto-node.git",
   "author": "jonathanarmando434 <jonathanarmando434@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
   "dependencies": {
     "express": "^4.21.2"
   },
