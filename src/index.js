@@ -7,6 +7,18 @@ app.use(express.json());
 
 const accounts = [];
 
+const verifyAccountExistsByCPF = (req, res, next) => {
+    const {cpf} = req.headers;
+
+    const account = accounts.find(account => account.cpf === cpf);
+
+    if(!account) return res.status(400).json({ error: "Account not found" });
+
+    req.account = account
+
+    next();
+}
+
 app.post('/account', (req, res) => {
     const { cpf, name} = req.body;
     const accountAlreadyExists = accounts.some(
@@ -22,13 +34,8 @@ app.post('/account', (req, res) => {
     return res.status(201).send();
 });
 
-app.get('/account/statement/:cpf', (req, res) => {
-    const {cpf} = req.params;
-
-    const account = accounts.find(account => account.cpf === cpf);
-
-    if(!account) return res.status(400).json({ error: "Account not found" });
-
+app.get('/account/statement', verifyAccountExistsByCPF, (req, res) => {
+    const { account } = req;
     return res.json(account.statement);
 })
 
