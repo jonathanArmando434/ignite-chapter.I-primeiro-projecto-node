@@ -88,4 +88,12 @@ app.post('/account/withdraw', verifyAccountExistsByCPF, (req, res) => {
     return res.json(account.statements);
 }) 
 
+app.get('/account/statement/date', verifyAccountExistsByCPF, (req, res) => {
+    const { account } = req;
+    const { date } = req.query;
+    const formatDate = new Date(date + " 00:00");
+    const statementsFiltred = account.statements.filter(statement => statement.createdAt.toDateString() === new Date(formatDate).toDateString()); 
+    return res.json(statementsFiltred);
+})
+
 app.listen(3333);
